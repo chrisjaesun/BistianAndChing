@@ -1,12 +1,13 @@
 package com.example.christianlee.practiceapp;
 
-import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
-import android.view.Display;
 import android.view.View;
+
+import static android.R.attr.button;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,7 +17,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    private String text = "Bing Sucks";
+
     public void BingReallySucks(View view) {
+        text = text + "!";
+        ((android.widget.Button)findViewById(R.id.bingbutton)).setText(text);
         DisplayMetrics dm = getResources().getDisplayMetrics();
         int screen_w = dm.widthPixels;
         int screen_h = dm.heightPixels;
@@ -40,5 +45,6 @@ public class MainActivity extends AppCompatActivity {
         }
         view.setY(y);
         view.setX(x);
+        view.setBackgroundColor((int) (Math.random() * Integer.MAX_VALUE));
     }
 }
